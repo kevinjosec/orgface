@@ -117,22 +117,22 @@ const Register = () => {
           {step === 2 && (
             <>
               <div
-                className="flex text-start -ml-24 font-outfit font-medium z-10"
+                className="flex text-start -mt-24 -ml-24 font-outfit font-medium z-10"
                 onClick={() => setStep(0)}
               >
                 <IoIosArrowBack className="mt-1 mr-1" /> Back
               </div>
-              <div className="font-bold text-3xl pb-2 mt-20 -mx-28 md:hidden">
+              <div className="font-bold text-3xl pb-2 mt-10 -mx-28 md:hidden">
                 Set your password
               </div>
-              <div className="z-30 font-semibold text-start text-xl pb-2 mt-20 -mx-20 md:hidden">
-                Password
+              <div className="z-30 text-start text-xl pb-2 mt-10 -mx-20 md:hidden">
+                <span className="font-semibold">Password</span>
                 <input
                   type="password"
                   placeholder="New Password"
                   className="border-2 w-full rounded-md p-3 mt-4 bg-input"
                 />
-                <div className="font-outfit text-gray-500 text-start text-sm py-4">
+                <div className="font-outfit font-medium text-gray-500 text-start text-sm py-4">
                   Password must be 8 or more characters
                 </div>
               </div>
