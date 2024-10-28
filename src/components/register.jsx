@@ -89,20 +89,20 @@ const Register = () => {
           {step === 1 && (
             <>
               <div
-                className="flex text-start -ml-24 font-outfit font-medium z-10"
+                className="flex text-start -mt-24 -ml-24 font-outfit font-medium z-10"
                 onClick={() => setStep(0)}
               >
                 <IoIosArrowBack className="mt-1 mr-1" /> Back
               </div>
-              <div className="font-bold text-3xl pb-2 mt-20 -mx-28 md:hidden">
+              <div className="font-bold text-3xl pb-2 mt-10 -mx-28 md:hidden">
                 What's your name?
               </div>
-              <div className="z-20 font-semibold text-start text-xl pb-2 mt-20 -mx-20 md:hidden">
-                Display Name
+              <div className="z-20 text-start font-outfit text-xl pb-2 mt-10 -mx-20 md:hidden">
+                <span className="font-semibold">Display Name</span>
                 <input
                   type="text"
-                  placeholder="Display Name"
-                  className="border-2 w-full rounded-md p-3 mt-4 bg-input"
+                  placeholder="Name"
+                  className="border-2 w-full placeholder:text-xl rounded-md p-3 mt-4 bg-input"
                 />
               </div>
               <div
