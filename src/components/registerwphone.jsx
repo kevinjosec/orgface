@@ -5,12 +5,14 @@ import bottom from "./bottom.png";
 import { useNavigate } from "react-router-dom";
 import org from "./org-build.png";
 import { ClipLoader } from "react-spinners";
+import { FiCheckCircle } from "react-icons/fi";
 
 export default function Registerwphone() {
   const navigate = useNavigate();
   const [active, setActive] = useState("phone");
   const [modal, setOpenModal] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [verified, setVerified] = useState(false);
 
   const openModal = () => {
     setOpenModal(!modal);
@@ -18,6 +20,17 @@ export default function Registerwphone() {
 
   const regwemail = () => {
     navigate("/register");
+  };
+
+  const handleVerify = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setVerified(true);
+      setTimeout(() => {
+        navigate("/register");
+      }, 2000); // Navigate after showing the verification icon for a short time
+    }, 3000);
   };
 
   return (
@@ -50,10 +63,10 @@ export default function Registerwphone() {
               className={`cursor-pointer p-2 rounded-md transition-colors duration-200 ${
                 active === "email" ? "bg-gray-500 text-white" : "text-gray-600"
               }`}
-              onClick={() =>{
+              onClick={() => {
                 setActive("email");
-                navigate('/register');
-              } }
+                navigate("/register");
+              }}
             >
               Email
             </div>
@@ -61,7 +74,7 @@ export default function Registerwphone() {
               className={`cursor-pointer p-2 rounded-md transition-colors duration-200 ${
                 active === "phone" ? "bg-gray-500 text-white" : "text-gray-600"
               }`}
-              onClick={()=>{
+              onClick={() => {
                 setActive("phone");
                 navigate("/regwphone");
               }}
@@ -70,25 +83,26 @@ export default function Registerwphone() {
             </div>
           </div>
           <div className="flex flex-col justify-start text-left mt-5 font-outfit z-10">
-            <div className="font-semibold text-xl mt-10 mb-5">
-              Phone Number
-            </div>
+            <div className="font-semibold text-xl mt-10 mb-5">Phone Number</div>
             <div>
-            <select className="p-2 mt-5 mr-1 bg-input text-black w-20 h-12 rounded font-outfit placeholder:text-black">
-              <option value="+91">IN +91</option>
-              <option value="+61">KWT +965</option>
-            </select>
-            <input
-              type="number"
-              placeholder="Phone number"
-              className="border-2 rounded-md p-3 w-72 bg-input"
-            />
+              <select className="p-2 mt-5 mr-1 bg-input text-black w-20 h-12 rounded font-outfit placeholder:text-black">
+                <option value="+91">IN +91</option>
+                <option value="+61">KWT +965</option>
+              </select>
+              <input
+                type="number"
+                placeholder="Phone number"
+                className="border-2 rounded-md p-3 w-72 bg-input"
+              />
             </div>
           </div>
           <div className="text-blue-600 font-outfit font-semibold text-left pt-2">
             View our privacy policy
           </div>
-          <div className="z-10 p-3 border-2 bg-loginBrown rounded-md mt-16 text-white font-outfit font-semibold text-xl" onClick={openModal}>
+          <div
+            className="z-10 p-3 border-2 bg-loginBrown rounded-md mt-16 text-white font-outfit font-semibold text-xl"
+            onClick={openModal}
+          >
             Next
           </div>
         </div>
@@ -115,18 +129,30 @@ export default function Registerwphone() {
               <div className="mt-6 justify-between">
                 <button
                   className="bg-loginBrown w-full text-white rounded px-4 py-2"
-                  onClick={() => {
-                    setLoading(true);
-                    setTimeout(() => {
-                      setLoading(false);
-                      navigate("/register");
-                    }, 3000);
-                  }}
+                  onClick={handleVerify}
+                  disabled={loading || verified}
                 >
-                  <a className="flex justify-center align-middle">
-                    <ClipLoader color={"#FFFFFF"} loading={loading} size={25} />{" "}
-                    <span className="pl-4">Verify</span>
-                  </a>
+                  <div className="flex justify-center items-center">
+                    {loading ? (
+                      <>
+                        <ClipLoader
+                          color={"#FFFFFF"}
+                          loading={loading}
+                          size={25}
+                        />
+                        <span className="pl-4">Verifying</span>
+                      </>
+                    ) : verified ? (
+                      <>
+                        <FiCheckCircle color={"#FFFFFF"} size={25} />
+                        <span className="pl-4">Verified</span>
+                      </>
+                    ) : (
+                      <>
+                        <span className="pl-4">Verify</span>
+                      </>
+                    )}
+                  </div>
                 </button>
                 <div className="grid grid-cols-4 mt-2">
                   <div className="col-span-1 text-left">1:24</div>
