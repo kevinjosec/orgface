@@ -28,7 +28,7 @@ export default function Registerwphone() {
       setLoading(false);
       setVerified(true);
       setTimeout(() => {
-        navigate("/register");
+        navigate("/");
       }, 2000); // Navigate after showing the verification icon for a short time
     }, 3000);
   };
@@ -55,7 +55,7 @@ export default function Registerwphone() {
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${rightbg})`, opacity: 0.07 }}
           ></div>
-          <div className="font-bold text-2xl pb-2 mt-20 md:hidden">
+          <div className="font-bold text-2xl pb-2 mt-14 md:hidden">
             Enter email or phone
           </div>
           <div className="grid grid-cols-2 bg-input text-xl font-semibold p-1 font-outfit rounded-md w-96 z-10">
@@ -85,7 +85,7 @@ export default function Registerwphone() {
           <div className="flex flex-col justify-start text-left mt-5 font-outfit z-10">
             <div className="font-semibold text-xl mt-10 mb-5">Phone Number</div>
             <div>
-              <select className="p-2 mt-5 mr-1 bg-input text-black w-20 h-12 rounded font-outfit placeholder:text-black">
+              <select className="p-2 mr-1 bg-input text-black w-20 h-12 rounded font-outfit placeholder:text-black">
                 <option value="+91">IN +91</option>
                 <option value="+61">KWT +965</option>
               </select>
@@ -103,7 +103,7 @@ export default function Registerwphone() {
             className="z-10 p-3 border-2 bg-loginBrown rounded-md mt-16 text-white font-outfit font-semibold text-xl"
             onClick={openModal}
           >
-            Next
+            Send OTP
           </div>
         </div>
 

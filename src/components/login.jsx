@@ -79,26 +79,29 @@ export default function Login() {
           <div class="text-gray-600 font-outfit mt-12 hidden md:block">
             Need an account?
             <div
-              class="inline-block text-blue-600 font-semibold cursor-pointer"
+              class="inline-block text-blue-600 font-semibold cursor-pointer pl-1"
               onClick={() => {
                 navigate("/register");
               }}
             >
-              <a className="pl-1 cursor-pointer">Register</a>
+              Register
             </div>
+          </div>
+          <div className=" hidden md:block uppercase w-full text-center p-3 rounded font-outfit mt-4 bg-loginBrown text-white font-semibold">
+            Login
           </div>
         </div>
 
         {/* Responsive */}
-        <div className="col-span-2 relative pb-10">
+        <div className="col-span-2 relative">
           {toggleLogin ? (
             <div className="block md:hidden">
               <>
-              <div
+                <div
                   className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${rightbg})`, opacity: 0.1 }}
+                  style={{ backgroundImage: `url(${rightbg})`, opacity: 0.07 }}
                 ></div>
-                <div className="font-bold text-4xl text-center text-gray-700 pb-2 mt-20 md:hidden">
+                <div className="font-bold text-4xl text-center text-gray-700 pb-2 md:hidden">
                   Welcome back!
                 </div>
                 <div className="text-center text-xl font-normal p-3 text-gray-500 font-outfit">
@@ -111,7 +114,7 @@ export default function Login() {
                   <input
                     type="email"
                     placeholder="Email or phone number"
-                    className="border-2 rounded-md p-3  bg-input"
+                    className="border-2 rounded-md p-3 placeholder:text-gray-500 bg-input z-10"
                   />
                   <div class="relative">
                     <input
@@ -145,8 +148,8 @@ export default function Login() {
                 <div className="text-blue-600 font-outfit font-semibold text-right py-4 px-8 pt-2">
                   Forgot your password?
                 </div>
-                <div className="z-10 p-3 border-2 bg-loginBrown rounded-md text-center mx-8 mt-16 text-white font-outfit font-semibold text-xl">
-                  Next
+                <div className="z-30 p-3 border-2 bg-loginBrown rounded-md text-center mx-8 mt-16 text-white font-outfit font-semibold text-xl">
+                  Login
                 </div>
               </>
             </div>
@@ -158,7 +161,7 @@ export default function Login() {
                   className="absolute inset-0 bg-cover bg-center"
                   style={{ backgroundImage: `url(${rightbg})`, opacity: 0.1 }}
                 ></div>
-                <div className="relative grid grid-rows-2 gap-4 mt-8 order-1 justify-center items-center">
+                <div className="relative grid grid-rows-2 gap-4 mt-8 mx-2 order-1 justify-center items-center">
                   <div className="z-10">
                     <img src={top} alt="top" className="h-60 z-10" />
                   </div>
@@ -188,7 +191,7 @@ export default function Login() {
                     Register
                   </div>
                   <div
-                    className="uppercase w-full text-center p-3 rounded font-outfit mt-4 bg-transparent text-loginBrown border-2 border-loginBrown font-semibold md:text-white md:bg-loginBrown"
+                    className="uppercase w-full text-center p-3 rounded font-outfit mt-4 bg-transparent text-loginBrown border-2 border-loginBrown font-semibold md:hidden"
                     onClick={handleLogin}
                   >
                     Login

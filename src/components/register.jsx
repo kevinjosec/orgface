@@ -4,9 +4,10 @@ import rightbg from "./right-bg.png";
 import top from "./top.png";
 import bottom from "./bottom.png";
 import org from "./org-build.png";
+import { IoIosArrowBack } from "react-icons/io";
 
 const Register = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [step, setStep] = useState(0); // Step state to track the current form
   const [active, setActive] = useState("email");
 
@@ -32,16 +33,17 @@ const Register = () => {
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${rightbg})`, opacity: 0.07 }}
           ></div>
-
           {step === 0 && (
             <>
-              <div className="font-bold text-2xl pb-2 mt-20 md:hidden">
+              <div className="font-bold text-2xl pb-2 mt-14 md:hidden">
                 Enter email or phone
               </div>
               <div className="grid grid-cols-2 bg-input text-xl font-semibold p-1 font-outfit rounded-md w-96 z-10">
                 <div
                   className={`cursor-pointer p-2 rounded-md transition-colors duration-200 ${
-                    active === "email" ? "bg-gray-500 text-white" : "text-gray-600"
+                    active === "email"
+                      ? "bg-gray-500 text-white"
+                      : "text-gray-600"
                   }`}
                   onClick={() => {
                     setActive("email");
@@ -52,7 +54,9 @@ const Register = () => {
                 </div>
                 <div
                   className={`cursor-pointer p-2 rounded-md transition-colors duration-200 ${
-                    active === "phone" ? "bg-gray-500 text-white" : "text-gray-600"
+                    active === "phone"
+                      ? "bg-gray-500 text-white"
+                      : "text-gray-600"
                   }`}
                   onClick={() => {
                     setActive("phone");
@@ -84,16 +88,22 @@ const Register = () => {
 
           {step === 1 && (
             <>
+              <div
+                className="flex text-start -ml-24 font-outfit font-medium z-10"
+                onClick={() => setStep(0)}
+              >
+                <IoIosArrowBack className="mt-1 mr-1" /> Back
+              </div>
               <div className="font-bold text-3xl pb-2 mt-20 -mx-28 md:hidden">
                 What's your name?
               </div>
               <div className="z-20 font-semibold text-start text-xl pb-2 mt-20 -mx-20 md:hidden">
                 Display Name
                 <input
-                type="text"
-                placeholder="Display Name"
-                className="border-2 w-full rounded-md p-3 mt-4 bg-input"
-              />
+                  type="text"
+                  placeholder="Display Name"
+                  className="border-2 w-full rounded-md p-3 mt-4 bg-input"
+                />
               </div>
               <div
                 className="z-20 p-3 border-2 bg-loginBrown text-center w-full rounded-md mt-10 text-white font-outfit font-semibold text-xl"
@@ -106,30 +116,38 @@ const Register = () => {
 
           {step === 2 && (
             <>
+              <div
+                className="flex text-start -ml-24 font-outfit font-medium z-10"
+                onClick={() => setStep(0)}
+              >
+                <IoIosArrowBack className="mt-1 mr-1" /> Back
+              </div>
               <div className="font-bold text-3xl pb-2 mt-20 -mx-28 md:hidden">
                 Set your password
               </div>
               <div className="z-30 font-semibold text-start text-xl pb-2 mt-20 -mx-20 md:hidden">
                 Password
                 <input
-                type="password"
-                placeholder="New Password"
-                className=" border-2 w-full rounded-md p-3 mt-4 bg-input"
-              />
-              <div className="font-outfit text-gray-500 text-start text-sm py-4">
-                Password must be 8 or more characters
-              </div>
+                  type="password"
+                  placeholder="New Password"
+                  className="border-2 w-full rounded-md p-3 mt-4 bg-input"
+                />
+                <div className="font-outfit text-gray-500 text-start text-sm py-4">
+                  Password must be 8 or more characters
+                </div>
               </div>
               <div
                 className="z-10 p-3 border-2 bg-loginBrown rounded-md mt-16 text-white font-outfit font-semibold text-xl"
                 onClick={() => {
-                    navigate('/')
+                  navigate("/");
                 }}
               >
                 Create Account
               </div>
               <div className="font-outfit text-gray-500 -mx-20 text-center text-sm py-4 font-medium">
-                By registering, you agree to Orgface <span className="text-blue-500" >Privacy Policy</span> and <span className="text-blue-500" >Terms of service</span>
+                By registering, you agree to Orgface{" "}
+                <span className="text-blue-500">Privacy Policy</span> and{" "}
+                <span className="text-blue-500">Terms of service</span>
               </div>
             </>
           )}
@@ -204,10 +222,8 @@ const Register = () => {
 
           <div className="text-gray-600 font-outfit mt-12 hidden md:block">
             Already have an account?
-            <div className="inline-block text-blue-600 font-semibold">
-              <a href="index.html" className="pl-1">
+            <div className="inline-block text-blue-600 font-semibold pl-1">
                 Login
-              </a>
             </div>
           </div>
           <div className="hidden md:flex md:items-center md:justify md:my-10">
@@ -217,13 +233,8 @@ const Register = () => {
             </span>
             <hr className="flex-1 border-t border-gray-300" />
           </div>
-          <div className="hidden md:block md:w-full md:text-center md:p-3 md:rounded md:font-roboto md:mt-4 md:text-loginBrown md:bg-white md:border-2 md:font-medium md:border-loginBrown">
-            <a
-              onClick={() => navigate("/regwphone")}
-              className="cursor-pointer"
-            >
+          <div className="hidden cursor-pointer md:block md:w-full md:text-center md:p-3 md:rounded md:font-roboto md:mt-4 md:text-loginBrown md:bg-white md:border-2 md:font-medium md:border-loginBrown" onClick={() => navigate("/regwphone")}>
               Register with Phone number
-            </a>
           </div>
         </div>
       </div>
